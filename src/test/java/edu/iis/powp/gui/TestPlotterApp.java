@@ -13,7 +13,12 @@ import edu.iis.powp.appext.FeaturesManager;
 import edu.iis.powp.command.gui.CommandManagerWindow;
 import edu.iis.powp.command.gui.CommandManagerWindowCommandChangeObserver;
 import edu.iis.powp.events.SelectLoadSecretCommandOptionListener;
+import edu.iis.powp.events.SelectMirrorCommandOptionListener;
+import edu.iis.powp.events.SelectMoveCommandOptionListener;
+import edu.iis.powp.events.SelectRotateCommandOptionListener;
 import edu.iis.powp.events.SelectRunCurrentCommandOptionListener;
+import edu.iis.powp.events.SelectScaleCommandOptionListener;
+import edu.iis.powp.events.SelectStretchCommandOptionListener;
 import edu.iis.powp.events.SelectTestFigure2OptionListener;
 import edu.iis.powp.events.predefine.SelectTestFigureOptionListener;
 import edu.kis.powp.drawer.panel.DrawPanelController;
@@ -46,6 +51,12 @@ public class TestPlotterApp {
 		application.addTest("Load secret command", new SelectLoadSecretCommandOptionListener());
 
 		application.addTest("Run command", new SelectRunCurrentCommandOptionListener());
+		
+		application.addTest("Move command", new SelectMoveCommandOptionListener());
+		application.addTest("Rotate command", new SelectRotateCommandOptionListener());
+		application.addTest("Scale command", new SelectScaleCommandOptionListener());
+		application.addTest("Stretch command", new SelectStretchCommandOptionListener());
+		application.addTest("Mirror command", new SelectMirrorCommandOptionListener());
 
 	}
 
