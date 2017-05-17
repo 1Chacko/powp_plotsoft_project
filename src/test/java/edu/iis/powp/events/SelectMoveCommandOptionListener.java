@@ -21,6 +21,7 @@ public class SelectMoveCommandOptionListener implements ActionListener {
 		commands.add(new DrawToCommand(-20, -50));
 		//wypelnic poleceniami
 		
+		
 		PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
 		manager.setCurrentCommand(commands, "MoveCommand");
 
