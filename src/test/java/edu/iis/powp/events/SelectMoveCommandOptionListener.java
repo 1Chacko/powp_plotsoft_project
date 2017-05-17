@@ -16,11 +16,20 @@ public class SelectMoveCommandOptionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>(); 
-		
-		commands.add(new SetPositionCommand(-20, -50));
-		commands.add(new DrawToCommand(-20, -50));
-		//wypelnic poleceniami
-		
+		commands.add(new SetPositionCommand(30, 0));
+		commands.add(new DrawToCommand(30, 0));
+		commands.add(new SetPositionCommand(30, 10));
+		commands.add(new DrawToCommand(30, 100));
+		commands.add(new SetPositionCommand(50, 0));
+		commands.add(new DrawToCommand(50, 0));
+		commands.add(new SetPositionCommand(50, 10));
+		commands.add(new DrawToCommand(50, 100));
+		commands.add(new SetPositionCommand(120, 0));
+		commands.add(new DrawToCommand(70, 0));
+		commands.add(new DrawToCommand(70, 50));
+		commands.add(new DrawToCommand(120, 50));
+		commands.add(new DrawToCommand(120, 100));
+		commands.add(new DrawToCommand(70, 100));		
 		
 		PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
 		manager.setCurrentCommand(commands, "MoveCommand");
