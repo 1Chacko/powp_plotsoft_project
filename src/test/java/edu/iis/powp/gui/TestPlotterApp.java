@@ -20,6 +20,7 @@ import edu.iis.powp.events.SelectRunCurrentCommandOptionListener;
 import edu.iis.powp.events.SelectScaleCommandOptionListener;
 import edu.iis.powp.events.SelectStretchCommandOptionListener;
 import edu.iis.powp.events.SelectTestFigure2OptionListener;
+import edu.iis.powp.events.SelectTestFiguresOptionListener;
 import edu.iis.powp.events.predefine.SelectTestFigureOptionListener;
 import edu.kis.powp.drawer.panel.DrawPanelController;
 import edu.kis.powp.drawer.shape.LineFactory;
@@ -36,9 +37,13 @@ public class TestPlotterApp {
 	private static void setupPresetTests(Application application) {
 		SelectTestFigureOptionListener selectTestFigureOptionListener = new SelectTestFigureOptionListener();
 		SelectTestFigure2OptionListener selectTestFigure2OptionListener = new SelectTestFigure2OptionListener();
+		SelectTestFiguresOptionListener selectTestRectangleOptionListener = new SelectTestFiguresOptionListener("Rectangle");
+		SelectTestFiguresOptionListener selectTestRightTrapezoidOptionListener = new SelectTestFiguresOptionListener("RightTrapezoid");
 
 		application.addTest("Figure Joe 1", selectTestFigureOptionListener);
 		application.addTest("Figure Joe 2", selectTestFigure2OptionListener);
+		application.addTest("Rectangle", selectTestRectangleOptionListener);
+		application.addTest("RightTrapezoid", selectTestRightTrapezoidOptionListener);
 	}
 
 	/**
@@ -49,15 +54,13 @@ public class TestPlotterApp {
 	 */
 	private static void setupCommandTests(Application application) {
 		application.addTest("Load secret command", new SelectLoadSecretCommandOptionListener());
-
-		application.addTest("Run command", new SelectRunCurrentCommandOptionListener());
-		
 		application.addTest("Move command", new SelectMoveCommandOptionListener());
 		application.addTest("Rotate command", new SelectRotateCommandOptionListener());
 		application.addTest("Scale command", new SelectScaleCommandOptionListener());
 		application.addTest("Stretch command", new SelectStretchCommandOptionListener());
 		application.addTest("Mirror command", new SelectMirrorCommandOptionListener());
-
+		
+		application.addTest("Run command", new SelectRunCurrentCommandOptionListener());
 	}
 
 	/**
