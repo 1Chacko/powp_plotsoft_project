@@ -17,9 +17,9 @@ public class SelectTestFiguresOptionListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		if(checkWhichTest.equals("Rectangle")) {
-			FactoryCommand.createRectangle(0, 0, 100, 200).execute(FeaturesManager.getDriverManager().getCurrentPlotter());
+			FactoryCommand.createRectangle(-50, -50, 100, 200).execute(FeaturesManager.getDriverManager().getCurrentPlotter());
  		} else if(checkWhichTest.equals("RightTrapezoid")) {
- 			FactoryCommand.createRightTrapezoid(0, 0, 100, 200).execute(FeaturesManager.getDriverManager().getCurrentPlotter());
+ 			FactoryCommand.createRightTrapezoid(-50, -50, 100, 200).execute(FeaturesManager.getDriverManager().getCurrentPlotter());
  		}
 		
 		

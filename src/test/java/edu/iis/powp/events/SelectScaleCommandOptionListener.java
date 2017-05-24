@@ -32,7 +32,7 @@ public class SelectScaleCommandOptionListener implements ActionListener {
 		commands.add(new DrawToCommand(40, 100));
 		
 	    PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
-	    manager.setCurrentCommand(commands, "ScaleCommans");
+	    manager.setCurrentCommand(commands, "ScaleCommand");
 	}
 
 }
