@@ -82,8 +82,7 @@ public class FactoryCommand {
  		List<PlotterCommand> commandArrayList = new ArrayList<PlotterCommand>();
  		
  		if(command.equals("MoveCommand")){ 
- 			//tu powinno byc zapytanie o ile przesunac, zeby mozna bylo wpisac wartosci w oznaczonym przez "move" miejscu
- 			int move = -75;
+ 			//tu powinno byc zapytanie o ile przesunac, zeby mozna bylo wpisac wartosci w oznaczonym przez "move" miejscu 			
  			commandArrayList.add(new CommandSetPosition(x + xMove, y + yMove));
  	 		commandArrayList.add(new CommandDrawLineToPosition(x + xMove + width, y + yMove));
  	 		commandArrayList.add(new CommandDrawLineToPosition(x + xMove + width - (width / 3), y + yMove + height));		
