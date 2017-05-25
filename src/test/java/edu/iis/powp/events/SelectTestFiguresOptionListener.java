@@ -25,7 +25,7 @@ public class SelectTestFiguresOptionListener implements ActionListener{
 		PlotterCommandManager pcm = FeaturesManager.getPlotterCommandManager(); 		
  		String command = pcm.getCurrentCommandString();
  		
- 		if(!command.equals("No command loaded")) {
+ 		if(command.equals("MoveCommand")) {
  			if(checkWhichTest.equals("Rectangle")) {			
 			    JDialog frame = new JDialog();
 			    frame.setLayout(null);

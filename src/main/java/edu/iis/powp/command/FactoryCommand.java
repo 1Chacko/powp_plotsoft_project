@@ -22,13 +22,49 @@ public class FactoryCommand {
  	 		commandArrayList.add(new CommandDrawLineToPosition(x + xMove, y + yMove + height));
  	  		commandArrayList.add(new CommandDrawLineToPosition(x + xMove, y + yMove));
  		} else if(command.equals("ScaleCommand")) {
- 			//funkcjonalnosc
+ 			//skalowanie o jaką wartość, teraz dla przykładu 2
+ 			double scale = 1.5;
+ 			commandArrayList.add(new CommandSetPosition((int)Math.floor(x*scale), (int)Math.floor(y*scale)));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor((x + width)*scale), (int)Math.floor(y*scale)));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor((x + width)*scale), (int)Math.floor((y + height)*scale)));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor(x*scale), (int)Math.floor((y + height)*scale)));
+ 	  		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor(x*scale), (int)Math.floor(y*scale)));
  		} else if(command.equals("MirrorCommand")) {
- 			//funkcjonalnosc
+ 			commandArrayList.add(new CommandSetPosition(x, y));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition(x, y + height));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition(x + width, y + height));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition(x + width, y));
+ 	  		commandArrayList.add(new CommandDrawLineToPosition(x, y));
  		} else if(command.equals("RotateCommand")) {
- 			//funkcjonalnosc
+ 			//dodac zapytanie o jaki kąt ma być rotacja, teraz dla 45
+ 			commandArrayList.add(new CommandSetPosition((int)Math.floor((x)*Math.cos(Math.toRadians(45))) - 
+ 					(int)Math.floor((y)*Math.sin(Math.toRadians(45))), 
+ 					(int)Math.floor((x)*Math.sin(Math.toRadians(45))) + 
+ 					(int)Math.floor((y)*Math.cos(Math.toRadians(45)))));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor((x+width)*Math.cos(Math.toRadians(45))) - 
+ 					(int)Math.floor((y)*Math.sin(Math.toRadians(45))), 
+ 					(int)Math.floor((x+width)*Math.sin(Math.toRadians(45))) + 
+ 					(int)Math.floor((y)*Math.cos(Math.toRadians(45)))));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor((x+width)*Math.cos(Math.toRadians(45))) - 
+ 					(int)Math.floor((y+height)*Math.sin(Math.toRadians(45))), 
+ 					(int)Math.floor((x+width)*Math.sin(Math.toRadians(45))) + 
+ 					(int)Math.floor((y+height)*Math.cos(Math.toRadians(45)))));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor((x)*Math.cos(Math.toRadians(45))) - 
+ 					(int)Math.floor((y+height)*Math.sin(Math.toRadians(45))), 
+ 					(int)Math.floor((x)*Math.sin(Math.toRadians(45))) + 
+ 					(int)Math.floor((y+height)*Math.cos(Math.toRadians(45)))));
+ 	  		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor((x)*Math.cos(Math.toRadians(45))) - 
+ 					(int)Math.floor((y)*Math.sin(Math.toRadians(45))), 
+ 					(int)Math.floor((x)*Math.sin(Math.toRadians(45))) + 
+ 					(int)Math.floor((y)*Math.cos(Math.toRadians(45)))));
  		} else if(command.equals("StretchCommand")) {
- 			//funkcjonalnosc
+ 			//który bok rozciągamy ?
+ 			int stretch = 2;
+ 			commandArrayList.add(new CommandSetPosition(x, y * stretch));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition(x + width, y * stretch));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition(x + width, y + height));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition(x, y + height));
+ 	  		commandArrayList.add(new CommandDrawLineToPosition(x, y*stretch));
  		} else {
  			commandArrayList.add(new CommandSetPosition(x, y));
  	 		commandArrayList.add(new CommandDrawLineToPosition(x + width, y));
@@ -54,13 +90,51 @@ public class FactoryCommand {
  	 		commandArrayList.add(new CommandDrawLineToPosition(x + xMove, y + yMove + height));		
  	 		commandArrayList.add(new CommandDrawLineToPosition(x + xMove, y + yMove));
  		} else if(command.equals("ScaleCommand")) {
- 			//funkcjonalnosc
+ 			//skalowanie o jaką wartość, teraz dla przykładu 2
+ 			double scale = 1.5;
+ 			commandArrayList.add(new CommandSetPosition((int)Math.floor(x*scale), (int)Math.floor(y*scale)));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor((x + width)*scale), (int)Math.floor(y*scale)));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor((x + width - width/3)*scale), (int)Math.floor((y + height)*scale)));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor(x*scale), (int)Math.floor((y + height)*scale)));
+ 	  		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor(x*scale), (int)Math.floor(y*scale)));
  		} else if(command.equals("MirrorCommand")) {
- 			//funkcjonalnosc
+ 			//ewentualne pytanie wokół której osi X czy Y
+ 			//Przykladowo dla osi Y
+ 			commandArrayList.add(new CommandSetPosition(x, y));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition(x + width, y));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition(x + width, y + height));		
+ 	 		commandArrayList.add(new CommandDrawLineToPosition(x + (width / 3), y + height));		
+ 	 		commandArrayList.add(new CommandDrawLineToPosition(x, y));
  		} else if(command.equals("RotateCommand")) {
- 			//funkcjonalnosc
+ 			//dodac zapytanie o jaki kąt ma być rotacja, teraz dla 45
+ 			commandArrayList.add(new CommandSetPosition((int)Math.floor((x)*Math.cos(Math.toRadians(45))) - 
+ 					(int)Math.floor((y)*Math.sin(Math.toRadians(45))), 
+ 					(int)Math.floor((x)*Math.sin(Math.toRadians(45))) + 
+ 					(int)Math.floor((y)*Math.cos(Math.toRadians(45)))));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor((x+width)*Math.cos(Math.toRadians(45))) - 
+ 					(int)Math.floor((y)*Math.sin(Math.toRadians(45))), 
+ 					(int)Math.floor((x+width)*Math.sin(Math.toRadians(45))) + 
+ 					(int)Math.floor((y)*Math.cos(Math.toRadians(45)))));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor((x+width-width/3)*Math.cos(Math.toRadians(45))) - 
+ 					(int)Math.floor((y+height)*Math.sin(Math.toRadians(45))), 
+ 					(int)Math.floor((x+width-width/3)*Math.sin(Math.toRadians(45))) + 
+ 					(int)Math.floor((y+height)*Math.cos(Math.toRadians(45)))));		
+ 	 		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor((x)*Math.cos(Math.toRadians(45))) - 
+ 					(int)Math.floor((y+height)*Math.sin(Math.toRadians(45))), 
+ 					(int)Math.floor((x)*Math.sin(Math.toRadians(45))) + 
+ 					(int)Math.floor((y+height)*Math.cos(Math.toRadians(45)))));		
+ 	 		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor((x)*Math.cos(Math.toRadians(45))) - 
+ 					(int)Math.floor((y)*Math.sin(Math.toRadians(45))), 
+ 					(int)Math.floor((x)*Math.sin(Math.toRadians(45))) + 
+ 					(int)Math.floor((y)*Math.cos(Math.toRadians(45)))));
  		} else if(command.equals("StretchCommand")) {
- 			//funkcjonalnosc
+ 			//który bok rozciągamy ?
+ 			int stretch = 2;
+ 			commandArrayList.add(new CommandSetPosition(x, y*stretch));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition(x + width, y*stretch));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition(x + width - (width / 3), y + height));		
+ 	 		commandArrayList.add(new CommandDrawLineToPosition(x , y + height));		
+ 	 		commandArrayList.add(new CommandDrawLineToPosition(x, y*stretch));
  		} else {
  			commandArrayList.add(new CommandSetPosition(x, y));
  	 		commandArrayList.add(new CommandDrawLineToPosition(x + width, y));
