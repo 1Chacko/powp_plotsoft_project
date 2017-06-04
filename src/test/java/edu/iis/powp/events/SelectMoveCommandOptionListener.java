@@ -10,30 +10,33 @@ import edu.iis.powp.command.DrawToCommand;
 import edu.iis.powp.command.IPlotterCommand;
 import edu.iis.powp.command.SetPositionCommand;
 import edu.iis.powp.command.manager.PlotterCommandManager;
+import edu.iis.powp.window.WindowXY;
 
 public class SelectMoveCommandOptionListener implements ActionListener {
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>(); 
-		commands.add(new SetPositionCommand(30, 0));
-		commands.add(new DrawToCommand(30, 0));
-		commands.add(new SetPositionCommand(30, 10));
-		commands.add(new DrawToCommand(30, 100));
-		commands.add(new SetPositionCommand(50, 0));
-		commands.add(new DrawToCommand(50, 0));
-		commands.add(new SetPositionCommand(50, 10));
-		commands.add(new DrawToCommand(50, 100));
-		commands.add(new SetPositionCommand(120, 0));
-		commands.add(new DrawToCommand(70, 0));
-		commands.add(new DrawToCommand(70, 50));
-		commands.add(new DrawToCommand(120, 50));
-		commands.add(new DrawToCommand(120, 100));
-		commands.add(new DrawToCommand(70, 100));		
+	public void actionPerformed(ActionEvent e) {
 		
-		PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
-		manager.setCurrentCommand(commands, "MoveCommand");
-
+		WindowXY window = new WindowXY("moveBox");
+		window.getOkButton().addActionListener (new ActionListener () {
+	        public void actionPerformed(ActionEvent e) {			        			        			        	
+	        	window.getFrame().dispose();
+	        	List<IPlotterCommand> list = FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands();	        	
+	        	List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>(); 
+	        	
+				for (Object command : list) {
+					if(command instanceof SetPositionCommand) {
+						commands.add(new SetPositionCommand(((SetPositionCommand) command).getPosX() + Integer.parseInt(window.getX().getText()), ((SetPositionCommand) command).getPosY() + Integer.parseInt(window.getY().getText())));					
+					} else {				
+						commands.add(new DrawToCommand(((DrawToCommand) command).getPosX() + Integer.parseInt(window.getX().getText()), ((DrawToCommand) command).getPosY() + Integer.parseInt(window.getY().getText())));
+					}
+				}		
+				
+				PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
+				manager.setCurrentCommand(commands, "MoveCommand");
+	        }
+		
+		});
 	}
 
 }

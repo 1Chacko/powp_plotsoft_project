@@ -10,29 +10,32 @@ import edu.iis.powp.command.DrawToCommand;
 import edu.iis.powp.command.IPlotterCommand;
 import edu.iis.powp.command.SetPositionCommand;
 import edu.iis.powp.command.manager.PlotterCommandManager;
+import edu.iis.powp.window.WindowXY;
 
 public class SelectScaleCommandOptionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>(); 
-		commands.add(new SetPositionCommand(-40, -100));
-		commands.add(new DrawToCommand(-40, -100));
-		commands.add(new SetPositionCommand(-40, -80));
-		commands.add(new DrawToCommand(-40, 100));
-		commands.add(new SetPositionCommand(0, -100));
-		commands.add(new DrawToCommand(0, -100));
-		commands.add(new SetPositionCommand(0, -80));
-		commands.add(new DrawToCommand(0, 100));
-		commands.add(new SetPositionCommand(140, -100));
-		commands.add(new DrawToCommand(40, -100));
-		commands.add(new DrawToCommand(40, 0));
-		commands.add(new DrawToCommand(140, 0));
-		commands.add(new DrawToCommand(140, 100));
-		commands.add(new DrawToCommand(40, 100));
+		WindowXY window = new WindowXY("scaleBox");
+		window.getOkButton().addActionListener (new ActionListener () {
+	        public void actionPerformed(ActionEvent e) {			        			        			        	
+	        	window.getFrame().dispose();
+	        	List<IPlotterCommand> list = FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands();	        	
+	        	List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>(); 
+	        	
+				for (Object command : list) {
+					if(command instanceof SetPositionCommand) {						
+						commands.add(new SetPositionCommand((int)Math.floor((((SetPositionCommand) command).getPosX() * Double.parseDouble(window.getX().getText()))), (int)Math.floor((((SetPositionCommand) command).getPosY() * Double.parseDouble(window.getX().getText())))));					
+					} else {				
+						commands.add(new DrawToCommand((int)Math.floor((((DrawToCommand) command).getPosX() * Double.parseDouble(window.getX().getText()))), (int)Math.floor((((DrawToCommand) command).getPosY() * Double.parseDouble(window.getX().getText())))));
+					}
+				}		
+				
+				 PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
+				    manager.setCurrentCommand(commands, "ScaleCommand");
+	        }
 		
-	    PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
-	    manager.setCurrentCommand(commands, "ScaleCommand");
+		});	   
 	}
 
 }

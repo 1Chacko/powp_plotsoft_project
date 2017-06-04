@@ -9,6 +9,14 @@ public class DrawToCommand implements IPlotterCommand {
 
 	private int posX, posY;
 	
+	public int getPosX() {
+		return posX;
+	}
+
+	public int getPosY() {
+		return posY;
+	}
+
 	public DrawToCommand(int posX, int posY) {
 		super();
 		this.posX = posX;

@@ -14,7 +14,7 @@ import edu.iis.powp.observer.Publisher;
 public class PlotterCommandManager
 {
     private IPlotterCommand currentCommand = null;
-    
+    private List<IPlotterCommand> listOfPlotterCommands;
     private Publisher changePublisher = new Publisher(); 
 
 	/**
@@ -36,10 +36,10 @@ public class PlotterCommandManager
      */
     public synchronized void setCurrentCommand(List<IPlotterCommand> commandList, String name)
     {
+    	listOfPlotterCommands = commandList;
     	setCurrentCommand(new ICompoundCommand() {
 			
-    		List<IPlotterCommand> plotterCommands = commandList;
-    		
+    		List<IPlotterCommand> plotterCommands = commandList;    		
 			@Override
 			public void execute(IPlotter plotter) {
 				plotterCommands.forEach((c) -> c.execute(plotter));
@@ -66,6 +66,11 @@ public class PlotterCommandManager
     public synchronized IPlotterCommand getCurrentCommand()
     {
         return currentCommand;
+    }
+    
+    public synchronized List<IPlotterCommand> getCurrentListOfCommands()
+    {
+        return listOfPlotterCommands;
     }
     
     public synchronized void clearCurrentCommand()
