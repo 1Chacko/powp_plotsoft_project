@@ -18,21 +18,27 @@ public class SelectScaleCommandOptionListener implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		WindowXY window = new WindowXY("scaleBox");
 		window.getOkButton().addActionListener (new ActionListener () {
-	        public void actionPerformed(ActionEvent e) {			        			        			        	
-	        	window.getFrame().dispose();
-	        	List<IPlotterCommand> list = FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands();	        	
+	        public void actionPerformed(ActionEvent e) {	
 	        	List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>(); 
-	        	
-				for (Object command : list) {
-					if(command instanceof SetPositionCommand) {						
-						commands.add(new SetPositionCommand((int)Math.floor((((SetPositionCommand) command).getPosX() * Double.parseDouble(window.getX().getText()))), (int)Math.floor((((SetPositionCommand) command).getPosY() * Double.parseDouble(window.getX().getText())))));					
-					} else {				
-						commands.add(new DrawToCommand((int)Math.floor((((DrawToCommand) command).getPosX() * Double.parseDouble(window.getX().getText()))), (int)Math.floor((((DrawToCommand) command).getPosY() * Double.parseDouble(window.getX().getText())))));
-					}
-				}		
-				
-				 PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
-				    manager.setCurrentCommand(commands, "ScaleCommand");
+	        	if(!(FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands() == null)) {    
+		        	window.getFrame().dispose();
+		        	List<IPlotterCommand> list = FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands();	       	
+		        	
+					for (Object command : list) {
+						if(command instanceof SetPositionCommand) {						
+							commands.add(new SetPositionCommand((int)Math.floor((((SetPositionCommand) command).getPosX() * Double.parseDouble(window.getX().getText()))), (int)Math.floor((((SetPositionCommand) command).getPosY() * Double.parseDouble(window.getX().getText())))));					
+						} else {				
+							commands.add(new DrawToCommand((int)Math.floor((((DrawToCommand) command).getPosX() * Double.parseDouble(window.getX().getText()))), (int)Math.floor((((DrawToCommand) command).getPosY() * Double.parseDouble(window.getX().getText())))));
+						}
+					}		
+					
+					PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
+					manager.setCurrentCommand(commands, "ScaleCommand");
+	        	} else {
+	        		window.getFrame().dispose();
+	        		PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
+					manager.setCurrentCommand(commands, "No command loaded");
+	        	}
 	        }
 		
 		});	   

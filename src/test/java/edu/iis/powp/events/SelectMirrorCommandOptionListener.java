@@ -16,23 +16,36 @@ public class SelectMirrorCommandOptionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		WindowXY window = new WindowXY("mirrorBox");
+		WindowXY window = new WindowXY("mirrorBox");		
 		window.getOkButton().addActionListener (new ActionListener () {
-	        public void actionPerformed(ActionEvent e) {			        			        			        	
-	        	window.getFrame().dispose();
-	        	List<IPlotterCommand> list = FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands();	        	
+	        public void actionPerformed(ActionEvent e) {
 	        	List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>(); 
-	        	
-	        	for (Object command : list) {
-					if(command instanceof SetPositionCommand) {
-						commands.add(new SetPositionCommand(((SetPositionCommand) command).getPosX(), ((SetPositionCommand) command).getPosY()*(-1)));					
-					} else {				
-						commands.add(new DrawToCommand(((DrawToCommand) command).getPosX(), ((DrawToCommand) command).getPosY()*(-1)));
-					}
-				}	
-				
-				PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
-				manager.setCurrentCommand(commands, "MirrorCommand");
+	        	if(!(FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands() == null)) {
+	        		int x = 1, y = 1;
+	        		if(window.getcheckBoxX().isSelected()) {
+	        			x = -1;
+	        		} 
+	        		if(window.getcheckBoxY().isSelected()) {
+	        			y = -1;
+	        		}	        		
+		        	window.getFrame().dispose();
+		        	List<IPlotterCommand> list = FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands();	       	
+		        	
+		        	for (Object command : list) {
+						if(command instanceof SetPositionCommand) {
+							commands.add(new SetPositionCommand(((SetPositionCommand) command).getPosX() * y, ((SetPositionCommand) command).getPosY() * x));					
+						} else {				
+							commands.add(new DrawToCommand(((DrawToCommand) command).getPosX() * y, ((DrawToCommand) command).getPosY() * x));
+						}
+					}	
+					
+					PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
+					manager.setCurrentCommand(commands, "MirrorCommand");
+	        	} else {
+	        		window.getFrame().dispose();
+	        		PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
+					manager.setCurrentCommand(commands, "No command loaded");
+	        	}
 	        }
 		
 		});	 

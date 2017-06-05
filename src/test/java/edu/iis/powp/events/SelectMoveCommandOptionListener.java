@@ -19,21 +19,27 @@ public class SelectMoveCommandOptionListener implements ActionListener {
 		
 		WindowXY window = new WindowXY("moveBox");
 		window.getOkButton().addActionListener (new ActionListener () {
-	        public void actionPerformed(ActionEvent e) {			        			        			        	
-	        	window.getFrame().dispose();
-	        	List<IPlotterCommand> list = FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands();	        	
-	        	List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>(); 
-	        	
-				for (Object command : list) {
-					if(command instanceof SetPositionCommand) {
-						commands.add(new SetPositionCommand(((SetPositionCommand) command).getPosX() + Integer.parseInt(window.getX().getText()), ((SetPositionCommand) command).getPosY() + Integer.parseInt(window.getY().getText())));					
-					} else {				
-						commands.add(new DrawToCommand(((DrawToCommand) command).getPosX() + Integer.parseInt(window.getX().getText()), ((DrawToCommand) command).getPosY() + Integer.parseInt(window.getY().getText())));
-					}
-				}		
-				
-				PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
-				manager.setCurrentCommand(commands, "MoveCommand");
+	        public void actionPerformed(ActionEvent e) {
+	        	List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>();
+	        	if(!(FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands() == null)) {    
+		        	window.getFrame().dispose();
+		        	List<IPlotterCommand> list = FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands();	        	
+		        	 
+					for (Object command : list) {
+						if(command instanceof SetPositionCommand) {
+							commands.add(new SetPositionCommand(((SetPositionCommand) command).getPosX() + Integer.parseInt(window.getX().getText()), ((SetPositionCommand) command).getPosY() + Integer.parseInt(window.getY().getText())));					
+						} else {				
+							commands.add(new DrawToCommand(((DrawToCommand) command).getPosX() + Integer.parseInt(window.getX().getText()), ((DrawToCommand) command).getPosY() + Integer.parseInt(window.getY().getText())));
+						}
+					}		
+					
+					PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
+					manager.setCurrentCommand(commands, "MoveCommand");
+	        	} else {
+	        		window.getFrame().dispose();
+	        		PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
+					manager.setCurrentCommand(commands, "No command loaded");
+	        	}
 	        }
 		
 		});

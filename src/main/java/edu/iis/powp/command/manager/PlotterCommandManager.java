@@ -69,8 +69,9 @@ public class PlotterCommandManager
     }
     
     public synchronized List<IPlotterCommand> getCurrentListOfCommands()
-    {
-        return listOfPlotterCommands;
+    {	if(getCurrentCommand() == null) {
+			return null;
+		} else return listOfPlotterCommands;
     }
     
     public synchronized void clearCurrentCommand()
