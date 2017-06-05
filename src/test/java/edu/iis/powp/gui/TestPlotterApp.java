@@ -61,11 +61,11 @@ public class TestPlotterApp {
 	 *            Application context.
 	 */
 	private static void setupControl(Application application) {
-		application.addControlCommand("Move command", new SelectMoveCommandOptionListener());
-		application.addControlCommand("Rotate command", new SelectRotateCommandOptionListener());
-		application.addControlCommand("Scale command", new SelectScaleCommandOptionListener());
-		application.addControlCommand("Stretch command", new SelectStretchCommandOptionListener());
-		application.addControlCommand("Mirror command", new SelectMirrorCommandOptionListener());		
+		application.addControlCommand("Move", new SelectMoveCommandOptionListener());
+		application.addControlCommand("Rotate", new SelectRotateCommandOptionListener());
+		application.addControlCommand("Scale", new SelectScaleCommandOptionListener());
+		application.addControlCommand("Stretch", new SelectStretchCommandOptionListener());
+		application.addControlCommand("Mirror", new SelectMirrorCommandOptionListener());		
 	}
 
 	/**
