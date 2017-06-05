@@ -55,12 +55,12 @@ public class TestPlotterApp {
 	}
 	
 	/**
-	 * Setup controls for plotter commands.
+	 * Setup control for plotter commands.
 	 * 
 	 * @param application
 	 *            Application context.
 	 */
-	private static void setupControls(Application application) {
+	private static void setupControl(Application application) {
 		application.addControlCommand("Move command", new SelectMoveCommandOptionListener());
 		application.addControlCommand("Rotate command", new SelectRotateCommandOptionListener());
 		application.addControlCommand("Scale command", new SelectScaleCommandOptionListener());
@@ -131,7 +131,7 @@ public class TestPlotterApp {
 				setupPresetTests(app);
 				setupCommandTests(app);
 				setupLogger(app);
-				setupControls(app);
+				setupControl(app);
 				setupWindows(app);
 
 				app.setVisibility(true);
