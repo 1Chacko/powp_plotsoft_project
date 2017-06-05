@@ -89,6 +89,18 @@ public class Application {
 	public void addTest(String name, ActionListener listener) {
 		gui.addNewTestMenuListener(listener, name);
 	}
+	
+	/**
+	 * Add control command in control menu.
+	 * 
+	 * @param name
+	 *            Button name.
+	 * @param listener
+	 *            Listener that handles button click and run test.
+	 */
+	public void addControlCommand(String name, ActionListener listener) {
+		gui.addNewControlMenuListener(listener, name);
+	}
 
 	/**
 	 * Add new option in menu.

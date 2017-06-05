@@ -50,13 +50,22 @@ public class TestPlotterApp {
 	 */
 	private static void setupCommandTests(Application application) {
 		application.addTest("Load secret command", new SelectLoadSecretCommandOptionListener());
-		application.addTest("Load rectangle command", new SelectLoadRectangleCommandOptionListener());
-		application.addTest("Move command", new SelectMoveCommandOptionListener());
-		application.addTest("Rotate command", new SelectRotateCommandOptionListener());
-		application.addTest("Scale command", new SelectScaleCommandOptionListener());
-		application.addTest("Stretch command", new SelectStretchCommandOptionListener());
-		application.addTest("Mirror command", new SelectMirrorCommandOptionListener());		
+		application.addTest("Load rectangle command", new SelectLoadRectangleCommandOptionListener());	
 		application.addTest("Run command", new SelectRunCurrentCommandOptionListener());
+	}
+	
+	/**
+	 * Setup controls for plotter commands.
+	 * 
+	 * @param application
+	 *            Application context.
+	 */
+	private static void setupControls(Application application) {
+		application.addControlCommand("Move command", new SelectMoveCommandOptionListener());
+		application.addControlCommand("Rotate command", new SelectRotateCommandOptionListener());
+		application.addControlCommand("Scale command", new SelectScaleCommandOptionListener());
+		application.addControlCommand("Stretch command", new SelectStretchCommandOptionListener());
+		application.addControlCommand("Mirror command", new SelectMirrorCommandOptionListener());		
 	}
 
 	/**
@@ -122,6 +131,7 @@ public class TestPlotterApp {
 				setupPresetTests(app);
 				setupCommandTests(app);
 				setupLogger(app);
+				setupControls(app);
 				setupWindows(app);
 
 				app.setVisibility(true);

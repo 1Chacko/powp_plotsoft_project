@@ -52,7 +52,12 @@ public class PlotterGUI extends JFrame {
 	 * Test menu.
 	 */
 	private JMenu testMenu = null;
-
+	
+	/**
+	 * Control menu.
+	 */
+	private JMenu controlMenu = null;
+	
 	/**
 	 * Current driver text Field.
 	 */
@@ -145,7 +150,13 @@ public class PlotterGUI extends JFrame {
 		 */
 		testMenu = new JMenu("User Test");
 		menuBar.add(testMenu);
-
+		
+		/*
+		 * Control menu.
+		 */
+		controlMenu = new JMenu("Control");
+		menuBar.add(controlMenu);
+		
 		/*
 		 * Window menu
 		 */
@@ -268,6 +279,12 @@ public class PlotterGUI extends JFrame {
 		JMenuItem testMenuButton = new JMenuItem(label);
 		testMenuButton.addActionListener(listener);
 		testMenu.add(testMenuButton);
+	}
+	
+	public void addNewControlMenuListener(ActionListener listener, String label) {
+		JMenuItem controlMenuButton = new JMenuItem(label);
+		controlMenuButton.addActionListener(listener);
+		controlMenu.add(controlMenuButton);
 	}
 
 	public void notifyObservers(String message) {
