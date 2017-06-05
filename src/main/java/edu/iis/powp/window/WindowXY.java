@@ -17,6 +17,8 @@ public class WindowXY {
 			createBox();
 		} else if(boxName.equals("scaleBox")) {
 			createScaleBox();
+		} else if(boxName.equals("rotateBox")) {
+			createRotateBox();
 		}
 		
 	}	
@@ -93,6 +95,29 @@ public class WindowXY {
 	    frame.setResizable(false);		 	
 	    frame.setVisible(true);
 	    frame.setTitle("Podaj skale x");
+	}
+	
+	public void createRotateBox() {
+		frame = new JDialog();
+	    frame.setLayout(null);
+	    frame.setSize(230, 170);
+	    frame.setLocation(300, 250);
+	    x = new JTextField();
+	    JLabel xLabel = new JLabel("Rotacja (stopnie) x");
+	    okButton = new JButton("OK");
+	    
+	    x.setSize(50, 25);
+	    xLabel.setSize(100, 25);  
+	    okButton.setSize(75, 40);	 	    
+	    x.setLocation(25, 5);		 	   
+	    xLabel.setLocation(5, 35);	  
+	    okButton.setLocation(65, 75);	    
+	    frame.add(okButton);		 	
+	    frame.add(x);  
+	    frame.add(xLabel);
+	    frame.setResizable(false);		 	
+	    frame.setVisible(true);
+	    frame.setTitle("Podaj x, o który chcesz obrócić figurę");
 	}
 	
 	

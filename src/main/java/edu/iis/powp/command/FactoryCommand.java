@@ -37,14 +37,10 @@ public class FactoryCommand {
  	  		commandArrayList.add(new CommandDrawLineToPosition(x, y));
  		} else if(command.equals("RotateCommand")) {
  			//dodac zapytanie o jaki kąt ma być rotacja, teraz dla 45
- 			commandArrayList.add(new CommandSetPosition((int)Math.floor((x)*Math.cos(Math.toRadians(45))) - 
- 					(int)Math.floor((y)*Math.sin(Math.toRadians(45))), 
- 					(int)Math.floor((x)*Math.sin(Math.toRadians(45))) + 
- 					(int)Math.floor((y)*Math.cos(Math.toRadians(45)))));
- 	 		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor((x+width)*Math.cos(Math.toRadians(45))) - 
- 					(int)Math.floor((y)*Math.sin(Math.toRadians(45))), 
- 					(int)Math.floor((x+width)*Math.sin(Math.toRadians(45))) + 
- 					(int)Math.floor((y)*Math.cos(Math.toRadians(45)))));
+ 			commandArrayList.add(new CommandSetPosition((int)Math.floor((x)*Math.cos(Math.toRadians(45))) - (int)Math.floor((y)*Math.sin(Math.toRadians(45))), 
+ 					(int)Math.floor((x)*Math.sin(Math.toRadians(45))) + (int)Math.floor((y)*Math.cos(Math.toRadians(45)))));
+ 	 		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor((x+width)*Math.cos(Math.toRadians(45))) - (int)Math.floor((y)*Math.sin(Math.toRadians(45))), 
+ 					(int)Math.floor((x+width)*Math.sin(Math.toRadians(45))) + (int)Math.floor((y)*Math.cos(Math.toRadians(45)))));
  	 		commandArrayList.add(new CommandDrawLineToPosition((int)Math.floor((x+width)*Math.cos(Math.toRadians(45))) - 
  					(int)Math.floor((y+height)*Math.sin(Math.toRadians(45))), 
  					(int)Math.floor((x+width)*Math.sin(Math.toRadians(45))) + 
