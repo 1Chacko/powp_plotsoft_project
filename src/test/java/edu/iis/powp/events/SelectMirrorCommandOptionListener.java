@@ -10,31 +10,32 @@ import edu.iis.powp.command.DrawToCommand;
 import edu.iis.powp.command.IPlotterCommand;
 import edu.iis.powp.command.SetPositionCommand;
 import edu.iis.powp.command.manager.PlotterCommandManager;
+import edu.iis.powp.window.WindowXY;
 
 public class SelectMirrorCommandOptionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>(); 
+		WindowXY window = new WindowXY("mirrorBox");
+		window.getOkButton().addActionListener (new ActionListener () {
+	        public void actionPerformed(ActionEvent e) {			        			        			        	
+	        	window.getFrame().dispose();
+	        	List<IPlotterCommand> list = FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands();	        	
+	        	List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>(); 
+	        	
+	        	for (Object command : list) {
+					if(command instanceof SetPositionCommand) {
+						commands.add(new SetPositionCommand(((SetPositionCommand) command).getPosX(), ((SetPositionCommand) command).getPosY()*(-1)));					
+					} else {				
+						commands.add(new DrawToCommand(((DrawToCommand) command).getPosX(), ((DrawToCommand) command).getPosY()*(-1)));
+					}
+				}	
+				
+				PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
+				manager.setCurrentCommand(commands, "MirrorCommand");
+	        }
 		
-		commands.add(new SetPositionCommand(70, -50));
-		commands.add(new DrawToCommand(70, -50));
-		commands.add(new SetPositionCommand(70, -40));
-		commands.add(new DrawToCommand(70, 50));
-		commands.add(new SetPositionCommand(50, -50));
-		commands.add(new DrawToCommand(50, -50));
-		commands.add(new SetPositionCommand(50, -40));
-		commands.add(new DrawToCommand(50, 50));
-		commands.add(new SetPositionCommand(-20, -50));
-		commands.add(new DrawToCommand(30, -50));
-		commands.add(new DrawToCommand(30, 0));
-		commands.add(new DrawToCommand(-20, 0));
-		commands.add(new DrawToCommand(-20, 50));
-		commands.add(new DrawToCommand(30, 50));
-		
-		PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
-		manager.setCurrentCommand(commands, "MirrorCommand");
-
+		});	 
 	}
 
 }
