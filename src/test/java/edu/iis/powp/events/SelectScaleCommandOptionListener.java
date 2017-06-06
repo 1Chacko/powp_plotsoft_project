@@ -13,6 +13,9 @@ import edu.iis.powp.command.manager.PlotterCommandManager;
 import edu.iis.powp.window.ScaleState;
 import edu.iis.powp.window.WindowXY;
 
+/**
+ * SelectScaleCommandOptionListener.
+ */
 public class SelectScaleCommandOptionListener implements ActionListener {
 
 	@Override

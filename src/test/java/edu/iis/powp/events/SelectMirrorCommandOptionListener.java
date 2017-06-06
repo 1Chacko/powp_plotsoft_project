@@ -13,6 +13,9 @@ import edu.iis.powp.command.manager.PlotterCommandManager;
 import edu.iis.powp.window.MirrorState;
 import edu.iis.powp.window.WindowXY;
 
+/**
+ * SelectMirrorCommandOptionListener.
+ */
 public class SelectMirrorCommandOptionListener implements ActionListener {
 
 	@Override

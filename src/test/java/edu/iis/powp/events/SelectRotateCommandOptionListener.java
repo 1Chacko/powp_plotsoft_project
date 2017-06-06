@@ -13,6 +13,9 @@ import edu.iis.powp.command.manager.PlotterCommandManager;
 import edu.iis.powp.window.RotateState;
 import edu.iis.powp.window.WindowXY;
 
+/**
+ * SelectRotateCommandOptionListener.
+ */
 public class SelectRotateCommandOptionListener implements ActionListener {
 
 	@Override

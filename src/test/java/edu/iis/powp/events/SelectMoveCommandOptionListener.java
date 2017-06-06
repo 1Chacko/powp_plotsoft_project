@@ -13,6 +13,9 @@ import edu.iis.powp.command.manager.PlotterCommandManager;
 import edu.iis.powp.window.MoveState;
 import edu.iis.powp.window.WindowXY;
 
+/**
+ * SelectMoveCommandOptionListener.
+ */
 public class SelectMoveCommandOptionListener implements ActionListener {
 
 	@Override

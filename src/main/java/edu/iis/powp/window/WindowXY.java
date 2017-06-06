@@ -5,6 +5,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JTextField;
 
+/**
+ * WindowXY.
+ */
 public class WindowXY {
 
 	JButton okButton;
@@ -26,26 +29,56 @@ public class WindowXY {
 		this.state.createBox(this);
 	}	
 	
+	/**
+	 * Return OK-button.
+	 * 
+	 * @return OK-button.
+	 */
 	public JButton getOkButton() {
 		return okButton;
 	}
 	
+	/**
+	 * Return frame of current WindowXY.
+	 * 
+	 * @return Frame of current WindowXY.
+	 */
 	public JDialog getFrame() {
 		return frame;
 	}
 	
+	/**
+	 * Return x field of current WindowXY.
+	 * 
+	 * @return x field of current WindowXY.
+	 */
 	public JTextField getX() {
 		return x;
 	}
 	
+	/**
+	 * Return y field of current WindowXY.
+	 * 
+	 * @return y field of current WindowXY.
+	 */
 	public JTextField getY() {
 		return y;
 	}
 	
+	/**
+	 * Return x checkBox field of current WindowXY.
+	 * 
+	 * @return x checkBox field of current WindowXY.
+	 */
 	public JCheckBox getcheckBoxX() {
 		return checkBoxX;
 	}
 
+	/**
+	 * Return y checkBox field of current WindowXY.
+	 * 
+	 * @return y checkBox field of current WindowXY.
+	 */
 	public JCheckBox getcheckBoxY() {
 		return checkBoxY;
 	}

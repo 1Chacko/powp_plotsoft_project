@@ -11,6 +11,9 @@ import edu.iis.powp.command.IPlotterCommand;
 import edu.iis.powp.command.SetPositionCommand;
 import edu.iis.powp.command.manager.PlotterCommandManager;
 
+/**
+ * SelectLoadRectangleCommandOptionListener.
+ */
 public class SelectLoadRectangleCommandOptionListener implements ActionListener {
 
 	@Override

@@ -13,6 +13,9 @@ import edu.iis.powp.command.manager.PlotterCommandManager;
 import edu.iis.powp.window.StretchState;
 import edu.iis.powp.window.WindowXY;
 
+/**
+ * SelectStretchCommandOptionListener.
+ */
 public class SelectStretchCommandOptionListener implements ActionListener {
 
 	@Override
