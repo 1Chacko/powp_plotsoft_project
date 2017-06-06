@@ -65,7 +65,8 @@ public class TestPlotterApp {
 		application.addControlCommand("Rotate", new SelectRotateCommandOptionListener());
 		application.addControlCommand("Scale", new SelectScaleCommandOptionListener());
 		application.addControlCommand("Stretch", new SelectStretchCommandOptionListener());
-		application.addControlCommand("Mirror", new SelectMirrorCommandOptionListener());		
+		application.addControlCommand("Mirror", new SelectMirrorCommandOptionListener());
+		application.addControlCommand("Transform Figure", new SelectRunCurrentCommandOptionListener());
 	}
 
 	/**
