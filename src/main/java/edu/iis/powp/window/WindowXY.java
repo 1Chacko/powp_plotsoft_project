@@ -14,20 +14,17 @@ public class WindowXY {
 	private JTextField y;
 	private JCheckBox checkBoxX;
 	private JCheckBox checkBoxY;
+	private WindowXYState state;
 	
-	public WindowXY(String boxName){
-		if(boxName.equals("moveBox")) {
-			createBox();
-		} else if(boxName.equals("scaleBox")) {
-			createScaleBox();
-		} else if(boxName.equals("rotateBox")) {
-			createRotateBox();
-		} else if(boxName.equals("mirrorBox")) {
-			createMirrorBox();
-		} else if(boxName.equals("stretchBox")) {
-			createStretchBox();
-		}
-		
+	public WindowXY(WindowXYState chosenState){
+		this.okButton = new JButton("OK");
+		this.frame = new JDialog();
+		this.x = new JTextField();
+		this.y = new JTextField();
+		this.checkBoxX = new JCheckBox();
+		this.checkBoxY = new JCheckBox();
+		this.state = chosenState;
+		this.state.createBox(this);
 	}	
 	
 	public JButton getOkButton() {
