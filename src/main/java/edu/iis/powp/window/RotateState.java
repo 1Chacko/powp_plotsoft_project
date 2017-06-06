@@ -1,9 +1,6 @@
 package edu.iis.powp.window;
 
-import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 public class RotateState implements WindowXYState{
 

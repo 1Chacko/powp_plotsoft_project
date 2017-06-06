@@ -1,8 +1,5 @@
 package edu.iis.powp.window;
 
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JDialog;
 import javax.swing.JLabel;
 
 public class MirrorState implements WindowXYState {
