@@ -2,6 +2,9 @@ package edu.iis.powp.window;
 
 import javax.swing.JLabel;
 
+/**
+ * RotateState
+ */
 public class RotateState implements WindowXYState{
 
 	@Override

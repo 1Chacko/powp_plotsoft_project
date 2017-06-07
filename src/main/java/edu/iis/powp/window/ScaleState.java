@@ -2,6 +2,9 @@ package edu.iis.powp.window;
 
 import javax.swing.JLabel;
 
+/**
+ * ScaleState
+ */
 public class ScaleState implements WindowXYState{
 
 	@Override

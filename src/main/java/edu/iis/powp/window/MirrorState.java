@@ -2,6 +2,9 @@ package edu.iis.powp.window;
 
 import javax.swing.JLabel;
 
+/**
+ * MirrorState
+ */
 public class MirrorState implements WindowXYState {
 
 	@Override

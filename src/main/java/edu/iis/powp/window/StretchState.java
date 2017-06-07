@@ -2,6 +2,9 @@ package edu.iis.powp.window;
 
 import javax.swing.JLabel;
 
+/**
+ * StretchState
+ */
 public class StretchState implements WindowXYState {
 
 	@Override

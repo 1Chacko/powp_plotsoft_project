@@ -2,6 +2,9 @@ package edu.iis.powp.window;
 
 import javax.swing.JLabel;
 
+/**
+ * MoveState
+ */
 public class MoveState implements WindowXYState{
 
 	@Override
