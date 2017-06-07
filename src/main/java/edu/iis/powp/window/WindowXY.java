@@ -17,7 +17,8 @@ public class WindowXY {
 	private JCheckBox checkBoxX;
 	private JCheckBox checkBoxY;
 	private WindowXYState state;
-	
+	private JTextField label;
+
 	public WindowXY(WindowXYState chosenState){
 		this.okButton = new JButton("OK");
 		this.frame = new JDialog();
@@ -26,6 +27,7 @@ public class WindowXY {
 		this.checkBoxX = new JCheckBox();
 		this.checkBoxY = new JCheckBox();
 		this.state = chosenState;
+		this.label = new JTextField();
 		this.state.createBox(this);
 	}	
 	
@@ -81,6 +83,15 @@ public class WindowXY {
 	 */
 	public JCheckBox getcheckBoxY() {
 		return checkBoxY;
+	}
+	
+	/**
+	 * Return label field of current WindowXY.
+	 * 
+	 * @return label field of current WindowXY.
+	 */
+	public JTextField getLabel() {
+		return label;
 	}
 	
 }
