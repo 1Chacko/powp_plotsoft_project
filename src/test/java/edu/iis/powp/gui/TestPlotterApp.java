@@ -12,6 +12,7 @@ import edu.iis.powp.app.Application;
 import edu.iis.powp.appext.FeaturesManager;
 import edu.iis.powp.command.gui.CommandManagerWindow;
 import edu.iis.powp.command.gui.CommandManagerWindowCommandChangeObserver;
+import edu.iis.powp.events.SelectLengthOfDrawingHeadsPathOptionListener;
 import edu.iis.powp.events.SelectLengthOfDrawnLinesOptionListener;
 import edu.iis.powp.events.SelectLoadRectangleCommandOptionListener;
 import edu.iis.powp.events.SelectLoadSecretCommandOptionListener;
@@ -68,6 +69,7 @@ public class TestPlotterApp {
 		application.addControlCommand("Stretch", new SelectStretchCommandOptionListener());
 		application.addControlCommand("Mirror", new SelectMirrorCommandOptionListener());
 		application.addControlCommand("Length Of Drawn Lines", new SelectLengthOfDrawnLinesOptionListener());
+		application.addControlCommand("Length Of Drawing Head's Path", new SelectLengthOfDrawingHeadsPathOptionListener());
 		application.addControlCommand("Transform Figure", new SelectRunCurrentCommandOptionListener());
 	}
 
