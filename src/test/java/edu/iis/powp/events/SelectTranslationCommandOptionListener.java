@@ -6,12 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.iis.powp.appext.FeaturesManager;
-import edu.iis.powp.command.DrawToCommand;
 import edu.iis.powp.command.IPlotterCommand;
 import edu.iis.powp.command.SetPositionCommand;
 import edu.iis.powp.command.manager.PlotterCommandManager;
 import edu.iis.powp.strategy.ICalculationsStrategy;
-import edu.iis.powp.strategy.MoveStrategy;
 import edu.iis.powp.strategy.WindowXYStrategy;
 import edu.iis.powp.window.WindowXY;
 
@@ -33,12 +31,6 @@ public class SelectTranslationCommandOptionListener implements ActionListener {
 	        public void actionPerformed(ActionEvent e) {
 	        	List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>();
 	        	if(!(FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands() == null)) {
-	        		if(window.getcheckBoxX().isSelected()) {
-	        			window.setOsX(-1);
-	        		} 
-	        		if(window.getcheckBoxY().isSelected()) {
-	        			window.setOsY(-1);
-	        		}	   
 		        	window.getFrame().dispose();
 		        	List<IPlotterCommand> list = FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands();	        	
 		        	 

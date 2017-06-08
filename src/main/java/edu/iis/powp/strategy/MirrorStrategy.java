@@ -45,12 +45,24 @@ public class MirrorStrategy implements WindowXYStrategy, ICalculationsStrategy {
 
 	@Override
 	public SetPositionCommand drawWithSetPositionCommand(Object command, WindowXY window) {
+		if(window.getcheckBoxX().isSelected()) {
+			window.setOsX(-1);
+		} 
+		if(window.getcheckBoxY().isSelected()) {
+			window.setOsY(-1);
+		}	
 		return new SetPositionCommand(((SetPositionCommand) command).getPosX() * window.getOsY(), ((SetPositionCommand) command).getPosY() * window.getOsX());
 		
 	}
 
 	@Override
 	public DrawToCommand drawWithDrawToCommand(Object command, WindowXY window) {
+		if(window.getcheckBoxX().isSelected()) {
+			window.setOsX(-1);
+		} 
+		if(window.getcheckBoxY().isSelected()) {
+			window.setOsY(-1);
+		}	
 		return new DrawToCommand(((DrawToCommand) command).getPosX() * window.getOsY(), ((DrawToCommand) command).getPosY() * window.getOsX());
 		
 	}
