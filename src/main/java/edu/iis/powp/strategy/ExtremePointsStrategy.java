@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 import edu.iis.powp.window.WindowXY;
 
 /**
- * ExtremePointsState
+ * ExtremePointsStrategy
  */
 public class ExtremePointsStrategy implements WindowXYStrategy {
 

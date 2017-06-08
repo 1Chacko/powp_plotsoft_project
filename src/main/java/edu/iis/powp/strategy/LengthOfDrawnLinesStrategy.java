@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 import edu.iis.powp.window.WindowXY;
 
 /**
- * LengthOfDrawnLinesState
+ * LengthOfDrawnLinesStrategy
  */
 public class LengthOfDrawnLinesStrategy implements WindowXYStrategy {
 

@@ -13,6 +13,10 @@ import edu.iis.powp.strategy.ICalculationsStrategy;
 import edu.iis.powp.strategy.WindowXYStrategy;
 import edu.iis.powp.window.WindowXY;
 
+/**
+ * SelectTranslationCommandOptionListener
+ *
+ */
 public class SelectTranslationCommandOptionListener implements ActionListener {
 	
 	private WindowXYStrategy strategy;
