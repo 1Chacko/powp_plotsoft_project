@@ -11,6 +11,9 @@ import edu.iis.powp.command.SetPositionCommand;
 import edu.iis.powp.window.LengthOfDrawingHeadsPathState;
 import edu.iis.powp.window.WindowXY;
 
+/**
+ * SelectLengthOfDrawingHeadsPathOptionListener.
+ */
 public class SelectLengthOfDrawingHeadsPathOptionListener implements ActionListener {
 
 	@Override

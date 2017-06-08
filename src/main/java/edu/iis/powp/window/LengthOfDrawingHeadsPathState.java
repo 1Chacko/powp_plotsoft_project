@@ -2,6 +2,9 @@ package edu.iis.powp.window;
 
 import javax.swing.JLabel;
 
+/**
+ * LengthOfDrawingHeadsPathState
+ */
 public class LengthOfDrawingHeadsPathState implements WindowXYState {
 
 	@Override

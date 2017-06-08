@@ -11,6 +11,9 @@ import edu.iis.powp.command.SetPositionCommand;
 import edu.iis.powp.window.LengthOfDrawnLinesState;
 import edu.iis.powp.window.WindowXY;
 
+/**
+ * SelectLengthOfDrawnLinesOptionListener.
+ */
 public class SelectLengthOfDrawnLinesOptionListener implements ActionListener {
 
 	@Override

@@ -2,6 +2,9 @@ package edu.iis.powp.window;
 
 import javax.swing.JLabel;
 
+/**
+ * ExtremePointsState
+ */
 public class ExtremePointsState implements WindowXYState {
 
 	@Override

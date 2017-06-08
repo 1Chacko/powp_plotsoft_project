@@ -11,10 +11,13 @@ import edu.iis.powp.command.SetPositionCommand;
 import edu.iis.powp.window.ExtremePointsState;
 import edu.iis.powp.window.WindowXY;
 
+/**
+ * SelectExtremePointsOptionListener.
+ */
 public class SelectExtremePointsOptionListener implements ActionListener {
 
-	private int maxX = 0, minX = 0, maxY = 0, minY = 0;
-	private int currentX, currentY;
+	private int maxX = 0, minX = 0, maxY = 0, minY = 0; //extreme points
+	private int currentX, currentY;						//current drawn point
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
@@ -55,6 +58,11 @@ public class SelectExtremePointsOptionListener implements ActionListener {
 
 	}
 
+	/**
+	 * @param currentX - x of current drawn point
+	 * @param currentY - y of current drawn point
+	 * Method tests if current drawn point is an extreme point
+	 */
 	private void testIfNewExtremePoints(int currentX, int currentY) {
 		if(currentX > maxX){
 			maxX = currentX;
