@@ -17,14 +17,15 @@ import edu.iis.powp.events.SelectLengthOfDrawingHeadsPathOptionListener;
 import edu.iis.powp.events.SelectLengthOfDrawnLinesOptionListener;
 import edu.iis.powp.events.SelectLoadRectangleCommandOptionListener;
 import edu.iis.powp.events.SelectLoadSecretCommandOptionListener;
-import edu.iis.powp.events.SelectMirrorCommandOptionListener;
-import edu.iis.powp.events.SelectMoveCommandOptionListener;
-import edu.iis.powp.events.SelectRotateCommandOptionListener;
+import edu.iis.powp.events.SelectTranslationCommandOptionListener;
 import edu.iis.powp.events.SelectRunCurrentCommandOptionListener;
-import edu.iis.powp.events.SelectScaleCommandOptionListener;
-import edu.iis.powp.events.SelectStretchCommandOptionListener;
 import edu.iis.powp.events.SelectTestFigure2OptionListener;
 import edu.iis.powp.events.predefine.SelectTestFigureOptionListener;
+import edu.iis.powp.strategy.MirrorStrategy;
+import edu.iis.powp.strategy.MoveStrategy;
+import edu.iis.powp.strategy.RotateStrategy;
+import edu.iis.powp.strategy.ScaleStrategy;
+import edu.iis.powp.strategy.StretchStrategy;
 import edu.kis.powp.drawer.panel.DrawPanelController;
 import edu.kis.powp.drawer.shape.LineFactory;
 
@@ -64,11 +65,11 @@ public class TestPlotterApp {
 	 *            Application context.
 	 */
 	private static void setupControl(Application application) {
-		application.addControlCommand("Move", new SelectMoveCommandOptionListener());
-		application.addControlCommand("Rotate", new SelectRotateCommandOptionListener());
-		application.addControlCommand("Scale", new SelectScaleCommandOptionListener());
-		application.addControlCommand("Stretch", new SelectStretchCommandOptionListener());
-		application.addControlCommand("Mirror", new SelectMirrorCommandOptionListener());
+		application.addControlCommand("Move", new SelectTranslationCommandOptionListener(new MoveStrategy()));
+		application.addControlCommand("Rotate", new SelectTranslationCommandOptionListener(new RotateStrategy()));
+		application.addControlCommand("Scale", new SelectTranslationCommandOptionListener(new ScaleStrategy()));
+		application.addControlCommand("Stretch", new SelectTranslationCommandOptionListener(new StretchStrategy()));
+		application.addControlCommand("Mirror", new SelectTranslationCommandOptionListener(new MirrorStrategy()));
 		application.addControlCommand("Length Of Drawn Lines", new SelectLengthOfDrawnLinesOptionListener());
 		application.addControlCommand("Length Of Drawing Head's Path", new SelectLengthOfDrawingHeadsPathOptionListener());
 		application.addControlCommand("Extreme Points", new SelectExtremePointsOptionListener());

@@ -8,7 +8,7 @@ import edu.iis.powp.appext.FeaturesManager;
 import edu.iis.powp.command.DrawToCommand;
 import edu.iis.powp.command.IPlotterCommand;
 import edu.iis.powp.command.SetPositionCommand;
-import edu.iis.powp.window.ExtremePointsState;
+import edu.iis.powp.strategy.ExtremePointsStrategy;
 import edu.iis.powp.window.WindowXY;
 
 /**
@@ -21,7 +21,7 @@ public class SelectExtremePointsOptionListener implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		WindowXY window = new WindowXY(new ExtremePointsState());
+		WindowXY window = new WindowXY(new ExtremePointsStrategy());
 
     	if(!(FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands() == null) && (FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands().get(0).toString().contains("SetPositionCommand"))) {    
         	List<IPlotterCommand> list = FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands();	        	

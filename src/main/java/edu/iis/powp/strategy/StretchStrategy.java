@@ -1,11 +1,15 @@
-package edu.iis.powp.window;
+package edu.iis.powp.strategy;
 
 import javax.swing.JLabel;
+
+import edu.iis.powp.command.DrawToCommand;
+import edu.iis.powp.command.SetPositionCommand;
+import edu.iis.powp.window.WindowXY;
 
 /**
  * StretchStrategy
  */
-public class StretchStrategy implements WindowXYStrategy {
+public class StretchStrategy implements WindowXYStrategy, ICalculationsStrategy {
 
 	@Override
 	public void createBox(WindowXY windowXY) {
@@ -26,6 +30,20 @@ public class StretchStrategy implements WindowXYStrategy {
 	    windowXY.getFrame().setResizable(false);		 	
 	    windowXY.getFrame().setVisible(true);
 	    windowXY.getFrame().setTitle("Podaj współczynnik rozciągania x");
+		
+	}
+
+	@Override
+	public SetPositionCommand drawWithSetPositionCommand(Object command, WindowXY window) {
+		return new SetPositionCommand((int)Math.floor((((SetPositionCommand) command).getPosX())), (int)Math.floor((((SetPositionCommand) command).getPosY() * Double.parseDouble(window.getX().getText()))));
+
+		
+	}
+
+	@Override
+	public DrawToCommand drawWithDrawToCommand(Object command, WindowXY window) {
+		return new DrawToCommand((int)Math.floor((((DrawToCommand) command).getPosX())), (int)Math.floor((((DrawToCommand) command).getPosY() * Double.parseDouble(window.getX().getText()))));
+
 		
 	}
 

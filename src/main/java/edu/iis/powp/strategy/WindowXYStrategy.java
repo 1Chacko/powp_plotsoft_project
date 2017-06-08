@@ -1,4 +1,6 @@
-package edu.iis.powp.window;
+package edu.iis.powp.strategy;
+
+import edu.iis.powp.window.WindowXY;
 
 /**
  * WindowXYStrategy

@@ -1,11 +1,15 @@
-package edu.iis.powp.window;
+package edu.iis.powp.strategy;
 
 import javax.swing.JLabel;
+
+import edu.iis.powp.command.DrawToCommand;
+import edu.iis.powp.command.SetPositionCommand;
+import edu.iis.powp.window.WindowXY;
 
 /**
  * MoveStrategy
  */
-public class MoveStrategy implements WindowXYStrategy{
+public class MoveStrategy implements WindowXYStrategy, ICalculationsStrategy {
 
 	@Override
 	public void createBox(WindowXY windowXY) {
@@ -36,6 +40,19 @@ public class MoveStrategy implements WindowXYStrategy{
 	    windowXY.getFrame().setResizable(false);		 	
 	    windowXY.getFrame().setVisible(true);
 	    windowXY.getFrame().setTitle("Podaj x i y");
+	}
+
+	@Override
+	public SetPositionCommand drawWithSetPositionCommand(Object command, WindowXY window) {
+		return new SetPositionCommand(((SetPositionCommand) command).getPosX() + Integer.parseInt(window.getX().getText()), ((SetPositionCommand) command).getPosY() + Integer.parseInt(window.getY().getText()));
+		
+	}
+
+	@Override
+	public DrawToCommand drawWithDrawToCommand(Object command, WindowXY window) {
+		return new DrawToCommand(((DrawToCommand) command).getPosX() + Integer.parseInt(window.getX().getText()), ((DrawToCommand) command).getPosY() + Integer.parseInt(window.getY().getText()));
+		// TODO Auto-generated method stub
+		
 	}
 
 }

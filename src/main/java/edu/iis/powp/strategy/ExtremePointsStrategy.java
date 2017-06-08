@@ -1,11 +1,13 @@
-package edu.iis.powp.window;
+package edu.iis.powp.strategy;
 
 import javax.swing.JLabel;
+
+import edu.iis.powp.window.WindowXY;
 
 /**
  * ExtremePointsState
  */
-public class ExtremePointsState implements WindowXYStrategy {
+public class ExtremePointsStrategy implements WindowXYStrategy {
 
 	@Override
 	public void createBox(WindowXY windowXY) {

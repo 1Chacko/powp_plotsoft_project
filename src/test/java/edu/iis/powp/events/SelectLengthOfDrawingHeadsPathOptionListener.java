@@ -8,7 +8,7 @@ import edu.iis.powp.appext.FeaturesManager;
 import edu.iis.powp.command.DrawToCommand;
 import edu.iis.powp.command.IPlotterCommand;
 import edu.iis.powp.command.SetPositionCommand;
-import edu.iis.powp.window.LengthOfDrawingHeadsPathState;
+import edu.iis.powp.strategy.LengthOfDrawingHeadsPathStrategy;
 import edu.iis.powp.window.WindowXY;
 
 /**
@@ -18,7 +18,7 @@ public class SelectLengthOfDrawingHeadsPathOptionListener implements ActionListe
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		WindowXY window = new WindowXY(new LengthOfDrawingHeadsPathState());
+		WindowXY window = new WindowXY(new LengthOfDrawingHeadsPathStrategy());
 
 		int startingX = 0, startingY = 0, pathLength = 0; //x i y od którego liczymy pojedyncze wektory, oraz długość całej drogi
 		int drawToX, drawToY; //x i y do którego liczymy pojedyncze wektory

@@ -10,41 +10,48 @@ import edu.iis.powp.command.DrawToCommand;
 import edu.iis.powp.command.IPlotterCommand;
 import edu.iis.powp.command.SetPositionCommand;
 import edu.iis.powp.command.manager.PlotterCommandManager;
-import edu.iis.powp.window.MirrorStrategy;
+import edu.iis.powp.strategy.ICalculationsStrategy;
+import edu.iis.powp.strategy.MoveStrategy;
+import edu.iis.powp.strategy.WindowXYStrategy;
 import edu.iis.powp.window.WindowXY;
 
-/**
- * SelectMirrorCommandOptionListener.
- */
-public class SelectMirrorCommandOptionListener implements ActionListener {
+public class SelectTranslationCommandOptionListener implements ActionListener {
+	
+	private WindowXYStrategy strategy;
+	private ICalculationsStrategy calculation;
+	
+	public SelectTranslationCommandOptionListener(WindowXYStrategy strategy) {
+		this.strategy = strategy;
+		this.calculation = (ICalculationsStrategy) strategy;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		WindowXY window = new WindowXY(new MirrorStrategy());		
+		
+		WindowXY window = new WindowXY(strategy);
 		window.getOkButton().addActionListener (new ActionListener () {
 	        public void actionPerformed(ActionEvent e) {
-	        	List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>(); 
+	        	List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>();
 	        	if(!(FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands() == null)) {
-	        		int x = 1, y = 1;
 	        		if(window.getcheckBoxX().isSelected()) {
-	        			x = -1;
+	        			window.setOsX(-1);
 	        		} 
 	        		if(window.getcheckBoxY().isSelected()) {
-	        			y = -1;
-	        		}	        		
+	        			window.setOsY(-1);
+	        		}	   
 		        	window.getFrame().dispose();
-		        	List<IPlotterCommand> list = FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands();	       	
-		        	
-		        	for (Object command : list) {
+		        	List<IPlotterCommand> list = FeaturesManager.getPlotterCommandManager().getCurrentListOfCommands();	        	
+		        	 
+					for (Object command : list) {
 						if(command instanceof SetPositionCommand) {
-							commands.add(new SetPositionCommand(((SetPositionCommand) command).getPosX() * y, ((SetPositionCommand) command).getPosY() * x));					
+							commands.add(calculation.drawWithSetPositionCommand(command, window));					
 						} else {				
-							commands.add(new DrawToCommand(((DrawToCommand) command).getPosX() * y, ((DrawToCommand) command).getPosY() * x));
+							commands.add(calculation.drawWithDrawToCommand(command, window));
 						}
-					}	
+					}		
 					
 					PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
-					manager.setCurrentCommand(commands, "MirrorCommand");
+					manager.setCurrentCommand(commands, "MoveCommand");
 	        	} else {
 	        		window.getFrame().dispose();
 	        		PlotterCommandManager manager = FeaturesManager.getPlotterCommandManager();
@@ -52,7 +59,6 @@ public class SelectMirrorCommandOptionListener implements ActionListener {
 	        	}
 	        }
 		
-		});	 
+		});
 	}
-
 }

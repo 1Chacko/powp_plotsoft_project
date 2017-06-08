@@ -5,6 +5,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JTextField;
 
+import edu.iis.powp.strategy.WindowXYStrategy;
+
 /**
  * WindowXY.
  */
@@ -12,6 +14,8 @@ public class WindowXY {
 
 	JButton okButton;
 	JDialog frame;
+	int osX = 1;
+	int osY = 1;
 	private JTextField x;
 	private JTextField y;
 	private JCheckBox checkBoxX;
@@ -52,6 +56,34 @@ public class WindowXY {
 		return frame;
 	}
 	
+	/**
+	 * @return
+	 */
+	public int getOsX() {
+		return osX;
+	}
+
+	/**
+	 * @param osX
+	 */
+	public void setOsX(int osX) {
+		this.osX = osX;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getOsY() {
+		return osY;
+	}
+
+	/**
+	 * @param osY
+	 */
+	public void setOsY(int osY) {
+		this.osY = osY;
+	}
+
 	/**
 	 * Return x field of current WindowXY.
 	 * 
