@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 /**
  * ExtremePointsState
  */
-public class ExtremePointsState implements WindowXYState {
+public class ExtremePointsState implements WindowXYStrategy {
 
 	@Override
 	public void createBox(WindowXY windowXY) {

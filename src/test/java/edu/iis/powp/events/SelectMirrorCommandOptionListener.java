@@ -10,7 +10,7 @@ import edu.iis.powp.command.DrawToCommand;
 import edu.iis.powp.command.IPlotterCommand;
 import edu.iis.powp.command.SetPositionCommand;
 import edu.iis.powp.command.manager.PlotterCommandManager;
-import edu.iis.powp.window.MirrorState;
+import edu.iis.powp.window.MirrorStrategy;
 import edu.iis.powp.window.WindowXY;
 
 /**
@@ -20,7 +20,7 @@ public class SelectMirrorCommandOptionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		WindowXY window = new WindowXY(new MirrorState());		
+		WindowXY window = new WindowXY(new MirrorStrategy());		
 		window.getOkButton().addActionListener (new ActionListener () {
 	        public void actionPerformed(ActionEvent e) {
 	        	List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>(); 

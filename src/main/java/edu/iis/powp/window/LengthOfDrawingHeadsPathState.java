@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 /**
  * LengthOfDrawingHeadsPathState
  */
-public class LengthOfDrawingHeadsPathState implements WindowXYState {
+public class LengthOfDrawingHeadsPathState implements WindowXYStrategy {
 
 	@Override
 	public void createBox(WindowXY windowXY) {

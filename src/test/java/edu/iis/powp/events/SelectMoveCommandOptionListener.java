@@ -10,7 +10,7 @@ import edu.iis.powp.command.DrawToCommand;
 import edu.iis.powp.command.IPlotterCommand;
 import edu.iis.powp.command.SetPositionCommand;
 import edu.iis.powp.command.manager.PlotterCommandManager;
-import edu.iis.powp.window.MoveState;
+import edu.iis.powp.window.MoveStrategy;
 import edu.iis.powp.window.WindowXY;
 
 /**
@@ -21,7 +21,7 @@ public class SelectMoveCommandOptionListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		WindowXY window = new WindowXY(new MoveState());
+		WindowXY window = new WindowXY(new MoveStrategy());
 		window.getOkButton().addActionListener (new ActionListener () {
 	        public void actionPerformed(ActionEvent e) {
 	        	List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>();

@@ -1,9 +1,9 @@
 package edu.iis.powp.window;
 
 /**
- * WindowXYState
+ * WindowXYStrategy
  */
-public interface WindowXYState {
+public interface WindowXYStrategy {
 	/**
 	 * @param windowXY
 	 * Create box for window

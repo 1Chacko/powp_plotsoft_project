@@ -10,7 +10,7 @@ import edu.iis.powp.command.DrawToCommand;
 import edu.iis.powp.command.IPlotterCommand;
 import edu.iis.powp.command.SetPositionCommand;
 import edu.iis.powp.command.manager.PlotterCommandManager;
-import edu.iis.powp.window.StretchState;
+import edu.iis.powp.window.StretchStrategy;
 import edu.iis.powp.window.WindowXY;
 
 /**
@@ -20,7 +20,7 @@ public class SelectStretchCommandOptionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {		
-		WindowXY window = new WindowXY(new StretchState());
+		WindowXY window = new WindowXY(new StretchStrategy());
 		window.getOkButton().addActionListener (new ActionListener () {
 	        public void actionPerformed(ActionEvent e) {	
 	        	List<IPlotterCommand> commands = new ArrayList<IPlotterCommand>(); 

@@ -3,9 +3,9 @@ package edu.iis.powp.window;
 import javax.swing.JLabel;
 
 /**
- * StretchState
+ * StretchStrategy
  */
-public class StretchState implements WindowXYState {
+public class StretchStrategy implements WindowXYStrategy {
 
 	@Override
 	public void createBox(WindowXY windowXY) {

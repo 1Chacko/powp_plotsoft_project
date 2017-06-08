@@ -3,9 +3,9 @@ package edu.iis.powp.window;
 import javax.swing.JLabel;
 
 /**
- * MirrorState
+ * MirrorStrategy
  */
-public class MirrorState implements WindowXYState {
+public class MirrorStrategy implements WindowXYStrategy {
 
 	@Override
 	public void createBox(WindowXY windowXY) {

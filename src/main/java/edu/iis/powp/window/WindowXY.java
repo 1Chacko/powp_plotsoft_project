@@ -16,11 +16,11 @@ public class WindowXY {
 	private JTextField y;
 	private JCheckBox checkBoxX;
 	private JCheckBox checkBoxY;
-	private WindowXYState state;
+	private WindowXYStrategy state;
 	private JTextField label;
 	private JTextField secondLabel;
 
-	public WindowXY(WindowXYState chosenState){
+	public WindowXY(WindowXYStrategy chosenState){
 		this.okButton = new JButton("OK");
 		this.frame = new JDialog();
 		this.x = new JTextField();

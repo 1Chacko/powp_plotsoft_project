@@ -5,7 +5,7 @@ import javax.swing.JLabel;
 /**
  * LengthOfDrawnLinesState
  */
-public class LengthOfDrawnLinesState implements WindowXYState {
+public class LengthOfDrawnLinesState implements WindowXYStrategy {
 
 	@Override
 	public void createBox(WindowXY windowXY) {

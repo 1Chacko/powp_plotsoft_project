@@ -10,7 +10,7 @@ import edu.iis.powp.command.DrawToCommand;
 import edu.iis.powp.command.IPlotterCommand;
 import edu.iis.powp.command.SetPositionCommand;
 import edu.iis.powp.command.manager.PlotterCommandManager;
-import edu.iis.powp.window.RotateState;
+import edu.iis.powp.window.RotateStrategy;
 import edu.iis.powp.window.WindowXY;
 
 /**
@@ -20,7 +20,7 @@ public class SelectRotateCommandOptionListener implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		WindowXY window = new WindowXY(new RotateState());
+		WindowXY window = new WindowXY(new RotateStrategy());
 		window.getOkButton().addActionListener (new ActionListener () {
 	        public void actionPerformed(ActionEvent e) {
 	        	    	
