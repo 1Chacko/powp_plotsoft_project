@@ -31,6 +31,7 @@ public class WindowXY {
 		this.label = new JTextField();
 		this.secondLabel = new JTextField();
 		this.state.createBox(this);
+		this.frame.setAlwaysOnTop(true);
 	}	
 	
 	/**

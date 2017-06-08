@@ -54,7 +54,6 @@ public class ExtremePointsState implements WindowXYState {
 		
 		windowXY.getFrame().setResizable(false);		 	
 	    windowXY.getFrame().setVisible(true);
-	    windowXY.getFrame().setAlwaysOnTop(true);
 	    windowXY.getFrame().setTitle("Najbardziej wysunięte punkty rysunku");
 
 	}
